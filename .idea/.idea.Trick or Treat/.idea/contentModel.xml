@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\colmr\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\colmr\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Trick or Treat.260297596.00" t="ExcludeRecursive" />
+    <e p="D:\Hard drive\Unity\projects\Trick or Treat" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CameraController.cs" t="Include" />
+        <e p="CamRotationY.cs" t="Include" />
+        <e p="ConstraintController.cs" t="Include" />
+        <e p="Exports" t="Include">
+          <e p="Editor" t="Include">
+            <e p="CreateEggObject.cs" t="Include" />
+            <e p="CreateFireworkObject.cs" t="Include" />
+            <e p="EditorUtils.cs" t="Include" />
+            <e p="RagdollBuilder.cs" t="Include" />
+            <e p="RagdollManagerEditor.cs" t="Include" />
+            <e p="RagdollManagerGenEditor.cs" t="Include" />
+            <e p="RagdollManagerPackageSetup.cs" t="Include" />
+          </e>
+          <e p="InputScripts" t="Include">
+            <e p="InputControl.cs" t="Include" />
+            <e p="InputManager.cs" t="Include" />
+          </e>
+          <e p="JasonsScripts" t="Include">
+            <e p="Example.cs" t="Include" />
+            <e p="Pool.cs" t="Include" />
+            <e p="PooledMonobehaviour.cs" t="Include" />
+            <e p="projectile.cs" t="Include" />
+          </e>
+          <e p="Ragdoll System" t="Include">
+            <e p="BodyColliderScript.cs" t="Include" />
+            <e p="ColliderScript.cs" t="Include" />
+            <e p="RagdollManager1.cs" t="Include" />
+            <e p="RagdollManagerGen1.cs" t="Include" />
+            <e p="RagdollManagerHum.cs" t="Include" />
+            <e p="Reimported" t="Include">
+              <e p="IRagdollUser.cs" t="Include" />
+              <e p="RagdollManager.cs" t="Include" />
+              <e p="RagdollManagerGen.cs" t="Include" />
+              <e p="RagdollUserGenericHumanoid.cs" t="Include" />
+            </e>
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="ScriptableObjects" t="Include">
+            <e p="EggObject.cs" t="Include" />
+            <e p="FireworkObject.cs" t="Include" />
+            <e p="SO_CrosshairVAlues.cs" t="Include" />
+            <e p="SO_InputValues.cs" t="Include" />
+            <e p="SO_StateControl.cs" t="Include" />
+            <e p="SO_UIController.cs" t="Include" />
+            <e p="SO_WeaponControl.cs" t="Include" />
+          </e>
+          <e p="scripts" t="Include">
+            <e p="Interfaces" t="Include">
+              <e p="Ishootable.cs" t="Include" />
+              <e p="Ithrowable.cs" t="Include" />
+            </e>
+            <e p="inventory" t="Include">
+              <e p="inventory.cs" t="Include" />
+              <e p="InventoryUse.cs" t="Include" />
+              <e p="Item.cs" t="Include" />
+              <e p="ItemComponent.cs" t="Include" />
+              <e p="ItemRayCaster.cs" t="Include" />
+              <e p="UseAction.cs" t="Include" />
+              <e p="UseMode.cs" t="Include" />
+            </e>
+            <e p="OldStuff" t="Include">
+              <e p="AnimEvents.cs" t="Include" />
+              <e p="animMoveBlend.cs" t="Include" />
+              <e p="CamCollisions.cs" t="Include" />
+              <e p="CamPosAndRot.cs" t="Include" />
+              <e p="ChangeWeaponMesh.cs" t="Include" />
+              <e p="CollisionDetection.cs" t="Include" />
+              <e p="CrosshairController.cs" t="Include" />
+              <e p="EggManager.cs" t="Include" />
+              <e p="FloorDetection.cs" t="Include" />
+              <e p="MoveAndRotate.cs" t="Include" />
+              <e p="MyInputManager.cs" t="Include" />
+              <e p="OnRollFinished.cs" t="Include" />
+              <e p="pickuppoolthing.cs" t="Include" />
+              <e p="SetCanTurn.cs" t="Include" />
+              <e p="SetUpCamera.cs" t="Include" />
+              <e p="SpineAimClamp.cs" t="Include" />
+              <e p="SplitScreenCont.cs" t="Include" />
+              <e p="StepControl.cs" t="Include" />
+              <e p="WeaponManager.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="JoinMe.cs" t="Include" />
+        <e p="OnTurningFinished.cs" t="Include" />
+        <e p="scripts" t="Include">
+          <e p="CamRotandPos.cs" t="Include" />
+          <e p="crossHair.cs" t="Include" />
+          <e p="IplayerInput.cs" t="Include" />
+          <e p="IRotate.cs" t="Include" />
+          <e p="Mover.cs" t="Include" />
+          <e p="NavMeshMover.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerInput.cs" t="Include" />
+          <e p="PlayerRotation.cs" t="Include" />
+          <e p="ScriptbleObjects" t="Include">
+            <e p="crosshairDefinition.cs" t="Include" />
+          </e>
+        </e>
+        <e p="SkySerie Freebie" t="Include">
+          <e p="Hdri setup.txt" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Trick or Treat.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

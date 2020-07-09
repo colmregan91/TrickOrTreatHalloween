@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f742cc32051ef1a4baa90309bcbfa83a, type: 3}
+  m_Name: First_FireWork
+  m_EditorClassIdentifier: 
+  myProjectile: {fileID: 658017195098753000, guid: b6e8ca9c60271a540bdbf179d86c0840,
+    type: 3}
+  CoolDownTime: 0
+  BulletsPerRound: 1
+  ProjectileForce: 200
+  FireRate: 0.1
+  ShotsFired: 0
+  RoundFinished: 0
+  aimRange: 0

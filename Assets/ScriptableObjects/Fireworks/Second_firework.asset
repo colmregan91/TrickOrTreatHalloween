@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f742cc32051ef1a4baa90309bcbfa83a, type: 3}
+  m_Name: Second_firework
+  m_EditorClassIdentifier: 
+  myProjectile: {fileID: 658017195098753000, guid: 9778dfc63b61aef4abce39ba8c39af25,
+    type: 3}
+  CoolDownTime: 0
+  BulletsPerRound: 6
+  ProjectileForce: 400
+  FireRate: 0.0001
+  ShotsFired: 0
+  RoundFinished: 0
+  aimRange: 0
