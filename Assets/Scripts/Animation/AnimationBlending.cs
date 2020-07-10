@@ -43,8 +43,8 @@ public class AnimationBlending
     {
         AnimBlendX_ToHash = Animator.StringToHash("BlendX");
         AnimBlendZ_ToHash = Animator.StringToHash("BlendZ");
-        aimBlendX_ToHash = Animator.StringToHash("AimBlendX");
-        aimBlendY_ToHash = Animator.StringToHash("AimBlendY");
+        //aimBlendX_ToHash = Animator.StringToHash("AimBlendX");
+        //aimBlendY_ToHash = Animator.StringToHash("AimBlendY");
         SpeedAnim_ToHash = Animator.StringToHash("Speed");
         RollTrigger_ToHash = Animator.StringToHash("Roll");
     }

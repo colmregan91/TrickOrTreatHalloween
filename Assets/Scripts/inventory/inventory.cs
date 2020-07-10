@@ -13,7 +13,7 @@ public class inventory : MonoBehaviour
     private playerEventHandler playerEvHandler;
     private void Start()
     {
-        playerEvHandler = player.eventHandler;
+        playerEvHandler = GetComponent<playerEventHandler>();
         initialHolderPos = ItemsHolder.position;
 
         playerEvHandler.playertoRgdEvent += DropLoot;

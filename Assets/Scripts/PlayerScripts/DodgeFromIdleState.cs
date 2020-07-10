@@ -33,12 +33,12 @@ public class DodgeFromIdleState : Istate
     {
         _OnRollFin.isFinished = false;
         _OnRollFin.TimeToGivePlayerBackInput = false;
-        _animCont._animWeightCont.ControlLegWeight(1, 1);
+    //    _animCont._animWeightCont.ControlLegWeight(1, 1);
     }
 
     public void OnUpdate()
     {
-        _animCont._animWeightCont.ControlLegWeight(0, 1);
+     //   _animCont._animWeightCont.ControlLegWeight(0, 1);
         if (_OnRollFin.TimeToGivePlayerBackInput)
         {
             _player.playerMover.Tick(_player.Speed);

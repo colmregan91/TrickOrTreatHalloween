@@ -26,9 +26,9 @@ public class Running : Istate
         _animCont._animBlending.MoveBlendTick();
         _animCont._animBlending.SpeedAnimTick();
         _player.playerMover.Tick(_player.Speed);
-        _animCont._animWeightCont.Tick();
+    //    _animCont._animWeightCont.Tick();
         _player._playerRotation.RotateWhenMovingTick();
-        _animCont._animWeightCont.ControlLegWeight(0, 0.1f);
+    //    _animCont._animWeightCont.ControlLegWeight(0, 0.1f);
     }
 }
 

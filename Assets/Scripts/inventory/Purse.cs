@@ -14,7 +14,7 @@ public class Purse : MonoBehaviour
     private void Start()
     {
         player = GetComponent<IPlayer>();
-        PlayerEventHandler = player.eventHandler;
+        PlayerEventHandler = GetComponent<playerEventHandler>();
         PlayerEventHandler.playertoRgdEvent += DropPurse;
     }
     private void OnDestroy()

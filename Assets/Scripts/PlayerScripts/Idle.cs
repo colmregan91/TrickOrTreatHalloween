@@ -23,13 +23,13 @@ public class Idle : Istate
 
     public void OnUpdate()
     {
-        _animCont._animWeightCont.ControlLegWeight(1, 0.1f);
+     //   _animCont._animWeightCont.ControlLegWeight(1, 0.1f);
         playerStepper.Tick();
         _animCont._animBlending.MoveBlendTick();
         _animCont._animBlending.SpeedAnimTick();
-        _animCont._animWeightCont.Tick();
+     //   _animCont._animWeightCont.Tick();
         _player.playerMover.Tick(_player.Speed);
-        Debug.Log(playerStepper.isTurning);
+
     }
 }
 
