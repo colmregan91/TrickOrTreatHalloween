@@ -5,7 +5,7 @@ public class AnimWeightControl
     private readonly Animator _animator;
     private readonly IPlayer _player;
     private const int LegLayerIndex = 2;
-    private const int AimingLayerIndex = 1;
+    private const int AimingLayerIndex = 3;
 
     public AnimWeightControl(Animator anim, IPlayer player)
     {
@@ -31,8 +31,7 @@ public class AnimWeightControl
         
         if (_player.inventory.ActiveItem.ObjectType is FireworkObject)
         {
-        
-            float aimer = /*_player.input.AimingWeapon == false ? 0.8f :*/ 1f;
+            float aimer = _player.input.AimingWeapon == false ? 0.6f : 0.8f;
             float getCurWeight = _animator.GetLayerWeight(AimingLayerIndex);
             getCurWeight = Mathf.Lerp(getCurWeight, aimer, 0.1f);
             _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);

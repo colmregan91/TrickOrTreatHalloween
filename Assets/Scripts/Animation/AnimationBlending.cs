@@ -65,7 +65,7 @@ public class AnimationBlending
         _anim.SetFloat(AnimBlendX_ToHash, curXblend);
         _anim.SetFloat(AnimBlendZ_ToHash, curZblend);
 
-    //    ControlAimBlend();
+        ControlAimBlend();
 
         curXblend = Mathf.Clamp(curXblend, -1f, 1f);
         curZblend = Mathf.Clamp(curZblend, -1f, 1f);
@@ -83,7 +83,7 @@ public class AnimationBlending
         cur = Mathf.Lerp(cur, _player.playerMover._LerpedVector.magnitude, 0.3f);
 
 
-        _anim.SetFloat(SpeedAnim_ToHash, cur); // MOVE TO ANIM BLENDING
+        _anim.SetFloat(SpeedAnim_ToHash, cur); 
     }
 
     public void SetDodgeBlendParamsFromMoving()
@@ -103,25 +103,24 @@ public class AnimationBlending
 
     void ControlAimBlend()
     {
-        if (myPlayerInput.AimingWeapon)
-        {
-            _anim.SetFloat(aimBlendX_ToHash, 0);
-            _anim.SetFloat(aimBlendY_ToHash, 1);
-            return;
-        }
+        _anim.SetBool("isAimingORwalking", _player.input.AimingWeapon);
+        //    _anim.SetFloat(aimBlendX_ToHash, 0);
+        //    _anim.SetFloat(aimBlendY_ToHash, 1);
+        //    return;
+        //}
 
 
-        float CamBlendX = _camManager.CamCont._tiltX / 100;
-        float CamBlendY = _camManager.CamCont._tiltY / 50;
+        //float CamBlendX = _camManager.CamCont._tiltX / 100;
+        //float CamBlendY = _camManager.CamCont._tiltY / 50;
 
-        curAimXblend = Mathf.Lerp(curAimXblend, CamBlendX, 0.1f);
-        curAimYblend = Mathf.Lerp(curAimYblend, CamBlendY, 0.1f);
+        //curAimXblend = Mathf.Lerp(curAimXblend, CamBlendX, 0.1f);
+        //curAimYblend = Mathf.Lerp(curAimYblend, CamBlendY, 0.1f);
 
-        curAimXblend = Mathf.Clamp(CamBlendX, -1f, 1f);
-        curAimYblend = Mathf.Clamp(CamBlendY, -1f, 1f);
+        //curAimXblend = Mathf.Clamp(CamBlendX, -1f, 1f);
+        //curAimYblend = Mathf.Clamp(CamBlendY, -1f, 1f);
 
-        _anim.SetFloat(aimBlendY_ToHash, -curAimYblend);
-        _anim.SetFloat(aimBlendX_ToHash, curAimXblend);
+        //_anim.SetFloat(aimBlendY_ToHash, -curAimYblend);
+        //_anim.SetFloat(aimBlendX_ToHash, curAimXblend);
         //float mouseRotationY = myPlayerInput.MouseY * RotationAimSpeed;
         //_tiltY = Mathf.Clamp(_tiltY - mouseRotationY, -40f, 40f);
         //_anim.SetFloat(aimBlendX, -curXblend);

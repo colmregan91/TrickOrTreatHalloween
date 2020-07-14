@@ -38,7 +38,7 @@ public class animationControl : MonoBehaviour
         _animStepper = new AnimStepper(_PlayerAnimator);
         _animBlending = new AnimationBlending(player, _PlayerAnimator, player.CamManager);
         _plyrstateMachine = GetComponentInParent<PlayerStateMachine>();
-       // _animWeightCont = new AnimWeightControl(_PlayerAnimator, player);
+        _animWeightCont = new AnimWeightControl(_PlayerAnimator, player);
 
         SetAnImHashIDs();
         _PlayerAnimator.keepAnimatorControllerStateOnDisable = true;

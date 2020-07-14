@@ -27,7 +27,7 @@ public class Idle : Istate
         playerStepper.Tick();
         _animCont._animBlending.MoveBlendTick();
         _animCont._animBlending.SpeedAnimTick();
-     //   _animCont._animWeightCont.Tick();
+        _animCont._animWeightCont.Tick();
         _player.playerMover.Tick(_player.Speed);
 
     }

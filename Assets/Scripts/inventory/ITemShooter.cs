@@ -37,7 +37,7 @@ public class ITemShooter : ItemComponent
     {
         player = transform.root.GetComponent<Player>();
         _cam = player._PlayerCamera;
-        ShootingPos = transform.parent.parent.GetChild(0);
+        ShootingPos = transform.parent.parent.GetChild(2);
         Crosshair = _cam.transform.parent.GetComponentInChildren<crossHair>();
         playerStateMachine = player.playerstateMachine;
         playerStateMachine.HandleStateChange += HandleCanShootStateChange;

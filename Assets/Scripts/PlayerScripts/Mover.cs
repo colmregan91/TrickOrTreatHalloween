@@ -13,6 +13,8 @@ public class Mover : IMover
     private Vector3 lerpedVector;
     public float currentXblendValue;
     public float currentYblendValue;
+
+
     public Vector3 _LerpedVector => lerpedVector;
 
     public Mover(IPlayer player)
@@ -51,7 +53,9 @@ public class Mover : IMover
 
 
         lerpedVector = new Vector3(currentXblendValue, 0, currentYblendValue);
-        _PlayerTransform.Translate(lerpedVector * Speed * Time.deltaTime);
+
+        float speedToGO = _Player.input.AimingWeapon ? (Speed / 2) * Time.deltaTime : Speed * Time.deltaTime;
+        _PlayerTransform.Translate(lerpedVector * speedToGO);
 
     }
 }
