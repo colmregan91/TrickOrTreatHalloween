@@ -42,13 +42,10 @@ public class animationControl : MonoBehaviour
 
         SetAnImHashIDs();
         _PlayerAnimator.keepAnimatorControllerStateOnDisable = true;
+
+   // used in elsewhere also
     }
 
-    private void OnDisable()
-    {
-        Debug.Log("click Here");
-       // _PlayerAnimator.SetFloat("Speed", 0f); // RID THIS IF CAN, CHECK ON RGD DAY
-    }
 
 
     public void setAnimator(bool value)
@@ -58,6 +55,7 @@ public class animationControl : MonoBehaviour
     public void PlayAnim(string animtoPlay)
     {
         _PlayerAnimator.Play(animtoPlay);
+  
     }
     public void SetTemplatePose(bool isfacingupwards)
     {
@@ -65,14 +63,14 @@ public class animationControl : MonoBehaviour
         {
             _RagdollTemplateAnimator.SetBool("Back", true);
             _RagdollTemplateAnimator.SetBool("Front", false);
-            _RagdollTemplateAnimator.Play("GetUpBack");
+            _RagdollTemplateAnimator.Play("faceDwn_GetUp"); 
 
         }
         else
         {
             _RagdollTemplateAnimator.SetBool("Front", true);
             _RagdollTemplateAnimator.SetBool("Back", false);
-            _RagdollTemplateAnimator.Play("GetUpFront");
+            _RagdollTemplateAnimator.Play("faceUp_Getting Up");
 
         }
 

@@ -101,6 +101,7 @@ public class AnimationBlending
         _anim.SetTrigger(RollTrigger_ToHash);
     }
 
+
     void ControlAimBlend()
     {
         _anim.SetBool("isAimingORwalking", _player.input.AimingWeapon);

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08b626ce5fc24f48b0aa31f2c18d52c, type: 3}
+  m_Name: EGGcrosshair
+  m_EditorClassIdentifier: 
+  Top: {fileID: 8481979853448494865, guid: 72e6d822fc4ec48429bce7e88190117b, type: 3}
+  Bottom: {fileID: 8481979853448494865, guid: 72e6d822fc4ec48429bce7e88190117b, type: 3}
+  Left: {fileID: 8481979853448494865, guid: 72e6d822fc4ec48429bce7e88190117b, type: 3}
+  Right: {fileID: 8481979853448494865, guid: 72e6d822fc4ec48429bce7e88190117b, type: 3}

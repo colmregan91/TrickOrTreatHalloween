@@ -43,7 +43,7 @@ public class RagdollTransformData
                     continue;
                 }
 
-                if (source.name == "CATRigpelvis" && dest.name == "CATRigpelvis")
+                if (source.name == "Hips" && dest.name == "Hips")
                 {
 
                     source.position = Vector3.LerpUnclamped(source.position, dest.position, percentageComplete * 2);

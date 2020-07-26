@@ -10,7 +10,7 @@ public class projectile : PooledMonoBehavior
     public Collider col;
     public GameObject sparkles;
     public float shotTime;
-    Transform parent;
+
     MeshRenderer meshrenderer => GetComponent<MeshRenderer>();
     Vector3 vel;
     private Vector3 explosionPos;
@@ -37,7 +37,7 @@ public class projectile : PooledMonoBehavior
 
     private void OnEnable()
     {
-        parent = transform.parent;
+    
            shotTime = Time.time;
     }
     void ResetDetonation()
@@ -92,12 +92,10 @@ public class projectile : PooledMonoBehavior
             }
         }
 
-
     }
 
     void turnoff()
     {
-        transform.SetParent(parent);
         gameObject.SetActive(false);
     }
 

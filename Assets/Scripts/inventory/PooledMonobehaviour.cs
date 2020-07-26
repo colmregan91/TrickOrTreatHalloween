@@ -10,7 +10,7 @@ public class PooledMonoBehavior : MonoBehaviour
 
     protected virtual void OnDisable()
     {
-        
+        Debug.Log("returned");
         OnReturnToPool?.Invoke(this);
     }
 

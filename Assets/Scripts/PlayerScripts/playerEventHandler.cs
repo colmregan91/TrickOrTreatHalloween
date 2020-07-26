@@ -15,7 +15,13 @@ public class playerEventHandler : MonoBehaviour
     public event Action TakingSweetseEvent;
     public event Action<int> HandleSweetDropped;
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            RaiseplayertoRgdEvent();
+        }
+    }
     public void RaiseHandleTurning(int dot)
     {
 
@@ -24,6 +30,7 @@ public class playerEventHandler : MonoBehaviour
 
     public void RaiseplayertoRgdEvent()
     {
+
         playertoRgdEvent?.Invoke();
     }
 

@@ -14,7 +14,7 @@ public class CamControl
     public Transform cambase;
     private IplayerInput myPlayerInput;
     public bool cancontrol;
-
+    Vector3 rot;
     public CamControl(Camera cam, Transform camBase, IplayerInput input, float rotSpeed)
     {
         _camera = cam;
@@ -22,6 +22,11 @@ public class CamControl
         myPlayerInput = input;
         RotationSpeed = rotSpeed;
         cancontrol = true;
+    }
+
+    public Vector3 GetCamOrientation()
+    {
+        return rot;
     }
 
     public void Tick()
@@ -35,7 +40,7 @@ public class CamControl
 
             _tiltY = Mathf.Clamp(_tiltY - mouseRotationY, -40f, 40f);
             _tiltX += mouseRotationX;
-            Vector3 rot = new Vector3(_tiltY, _tiltX, 0);
+            rot = new Vector3(_tiltY, _tiltX, 0);
             cambase.rotation = Quaternion.Euler(rot);
         }
         else

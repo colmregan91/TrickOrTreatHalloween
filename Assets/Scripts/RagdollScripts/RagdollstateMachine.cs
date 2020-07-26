@@ -22,8 +22,8 @@ public class RagdollstateMachine : MonoBehaviour
     public bool goToRagdoll;
     bool isReady;
 
-    public Transform pos1head;
-    public Transform pos2spine;
+    public Transform RGspine;
+    public Transform RGhead;
     IEnumerator Start()
     {
         isReady = false;
@@ -38,7 +38,7 @@ public class RagdollstateMachine : MonoBehaviour
 
         _ragdollState = new OnRagdoll(RGDtransform, AJtransform);
 
-        _CorrecingCamPos = new CorrectingCameraPositionAndLerpingTransforms(player.CamManager.transform, AnimCont, AJtransform, RGDtransform, pos1head, pos2spine);
+        _CorrecingCamPos = new CorrectingCameraPositionAndLerpingTransforms(player.CamManager.transform, AnimCont, AJtransform, RGDtransform, RGspine, RGhead);
 
         _playerGetUp = new PlayerGetUp(AnimCont);
 

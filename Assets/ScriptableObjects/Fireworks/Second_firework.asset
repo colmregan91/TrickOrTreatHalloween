@@ -15,7 +15,7 @@ MonoBehaviour:
   myProjectile: {fileID: 658017195098753000, guid: 9778dfc63b61aef4abce39ba8c39af25,
     type: 3}
   CoolDownTime: 0
-  BulletsPerRound: 6
+  BulletsPerRound: 1
   ProjectileForce: 400
   FireRate: 0.0001
   ShotsFired: 0

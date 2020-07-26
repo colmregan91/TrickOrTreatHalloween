@@ -8,7 +8,6 @@ public class InventoryUse : MonoBehaviour
     private IplayerInput myPlayerInput;
     private void Start()
     {
-
         _inventory = GetComponent<inventory>();
         _player = GetComponent<IPlayer>();
         myPlayerInput = _player.input;
@@ -28,7 +27,14 @@ public class InventoryUse : MonoBehaviour
             }
 
         }
-
+        if (myPlayerInput.selectSlot1)
+        {
+            _inventory.Equip(_inventory.EquippedFirework);
+        }
+        if (myPlayerInput.selectSlot2)
+        {
+            _inventory.Equip(_inventory.EquippedEgg);
+        }
 
     }
 
@@ -42,9 +48,9 @@ public class InventoryUse : MonoBehaviour
 
                 return myPlayerInput.AimingWeapon;
 
-
         }
 
         return false;
     }
+
 }

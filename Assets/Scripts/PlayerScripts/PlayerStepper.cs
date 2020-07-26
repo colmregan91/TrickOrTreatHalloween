@@ -11,7 +11,8 @@ public class PlayerStepper
     private playerEventHandler PlayerEventHandler;
     PlayerStateMachine playerStateMachine;
     public bool isTurning;
-    bool hasControlOverTurning;
+
+    float angle;
     public PlayerStepper(IPlayer player, Transform aimtarget)
     {
         _player = player;
@@ -52,16 +53,16 @@ public class PlayerStepper
     public void Tick()
     {
 
-        if (isTurning) return; 
-  
-        float ang = GetAngleBetweenPlayerandTarget();
+        if (isTurning) return;
 
-        if (ang > TurnThreshold)
+        angle = GetAngleBetweenPlayerandTarget();
+
+        if (angle > TurnThreshold)
         {
             int Dot = CalculateAngleDirection();
             PlayerEventHandler.RaiseHandleTurning(Dot);
             isTurning = true;
-
+            angle = 0;
         }
     }
 

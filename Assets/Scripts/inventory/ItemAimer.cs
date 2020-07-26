@@ -5,19 +5,19 @@ using UnityEngine;
 public class ItemAimer : ItemComponent
 {
     [SerializeField] private float aimRange;
-    [SerializeField] private float CamDefaultFOV = 70;
+ private float CamDefaultFOV = 70;
 
-    private IplayerInput myPlayerInput;
+    protected IplayerInput myPlayerInput;
     private Camera cam;
     private FireworkObject CurrentItem;
     private bool aim;
-    private IPlayer _player;
+    protected IPlayer _player;
     private inventory _inventory;
     public bool PlayerCanAim;
     private PlayerStateMachine playerStateMachine;
     private float TargetFOV;
     public bool isAiming;
-    private void Start()
+    public virtual void Start()
     {
         _player = transform.root.GetComponent<IPlayer>();
         cam = _player._PlayerCamera;
@@ -29,7 +29,7 @@ public class ItemAimer : ItemComponent
         playerStateMachine.HandleStateChange += HandleStateChange;
 
     }
-    private void OnDisable()
+    public virtual void OnDisable()
     {
         playerStateMachine.HandleStateChange -= HandleStateChange;
     }
@@ -45,10 +45,15 @@ public class ItemAimer : ItemComponent
             PlayerCanAim = false;
         }
     }
-    private void Update()
+    public virtual void Update()
     {
         if (Pause.Active) return;
 
+        ControlCamZoom();
+
+    }
+    void ControlCamZoom()
+    {
         if (!PlayerCanAim)
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, CamDefaultFOV, 0.25f);
@@ -64,11 +69,10 @@ public class ItemAimer : ItemComponent
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, CamDefaultFOV, 0.25f);
         }
-
     }
 
     public override void Use<t>(t CurrentHeldItem)
     {
-        //if current item is egg or sniper or something t will be used, dont need it now
+        Debug.Log("using");
     }
 }

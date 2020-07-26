@@ -50,12 +50,12 @@ public class ITemShooter : ItemComponent
             if (isShooting)
                 CancelShooting();
         }
-  
+
     }
     public Vector3 GetDir()
     {
         Vector3 TargetPos = Crosshair.RandomPointTick();
-       //  Vector3 poi = _cam.WorldToScreenPoint(TargetPos.normalized);
+        //  Vector3 poi = _cam.WorldToScreenPoint(TargetPos.normalized);
         Ray TargetPoint = _cam.ViewportPointToRay(Vector3.one / 2);
         return TargetPoint.direction.normalized;
 
@@ -87,23 +87,14 @@ public class ITemShooter : ItemComponent
 
         if (isShooting) return;
 
-        if (CurrentHeldItem is FireworkObject)
-        {
-         
-            FireworkObject CurrentFirework = CurrentHeldItem as FireworkObject;
-            CurrentlyEquippedFirework = CurrentFirework;
-            InvokeRepeating("Shoot", 0, CurrentlyEquippedFirework.FireRate);
-            isShooting = true;
 
-        }
-        else
-        {
-            CurrentlyEquippedFirework = null;
-            EggObject CurrentEgg = CurrentHeldItem as EggObject;
-            CurrentEgg.Throw(GetDir());
 
-            _nextUseTime = Time.time + CurrentEgg.CoolDownTime;
-        }
+        FireworkObject CurrentFirework = CurrentHeldItem as FireworkObject;
+        CurrentlyEquippedFirework = CurrentFirework;
+        InvokeRepeating("Shoot", 0, CurrentlyEquippedFirework.FireRate);
+        isShooting = true;
+
+
 
     }
 

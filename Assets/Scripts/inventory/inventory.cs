@@ -11,6 +11,9 @@ public class inventory : MonoBehaviour
     private Vector3 initialHolderPos;
     private IPlayer player => GetComponent<IPlayer>();
     private playerEventHandler playerEvHandler;
+    public Item EquippedFirework { get; private set; }
+    public Item EquippedEgg { get; private set; }
+
     private void Start()
     {
         playerEvHandler = GetComponent<playerEventHandler>();
@@ -26,6 +29,8 @@ public class inventory : MonoBehaviour
         playerEvHandler.RgdtoPlayerEvent -= PickUpLoot;
     }
     public Item ActiveItem { get; private set; }
+
+
     public bool isLootDropped;
 
     public void DropLoot()
@@ -53,30 +58,56 @@ public class inventory : MonoBehaviour
     }
     public void Equip(Item item)
     {
+        if (ActiveItem == item || item == null)
+        {
+            Debug.Log("itemalredayEquipped or null");
+            return;
+        }
         if (ActiveItem != null)
         {
             Unequip(ActiveItem);
         }
+        if (!item.gameObject.activeSelf)
+        {
+            item.gameObject.SetActive(true);
+        }
+     
         Transform itemTransform = item.transform;
         _Items.Add(item);
         itemTransform.SetParent(ItemsHolder);
         item.transform.localRotation = Quaternion.identity;
         item.transform.localPosition = Vector3.zero;
         ActiveItem = item;
+        DetermineWeaponType(ActiveItem);
 
         playerEvHandler.RaiseHandleItemChange(ActiveItem);
 
-        if (ActiveItem.ObjectType is FireworkObject)
-        {
 
-            FireworkObject newlyEquippedFirework = ActiveItem.ObjectType as FireworkObject;
-            newlyEquippedFirework.SetMyPool();
-        }
+
+
     }
     private void Unequip(Item item)
     {
         item.transform.SetParent(ItemsHolder);
         item.gameObject.SetActive(false);
+    }
+
+    void DetermineWeaponType(Item item)
+    {
+        if (item.ObjectType is FireworkObject)
+        {
+            EquippedFirework = item;
+            FireworkObject newlyEquippedFirework = ActiveItem.ObjectType as FireworkObject;
+            newlyEquippedFirework.SetMyPool();
+            return;
+        }
+        if (item.ObjectType is EggObject)
+        {
+            EquippedEgg = item;
+            EggObject newlyEquippedEgg = ActiveItem.ObjectType as EggObject;
+            newlyEquippedEgg.SetMyPool();
+            return;
+        }
     }
 }
 

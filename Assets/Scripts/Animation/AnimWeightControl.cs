@@ -36,6 +36,11 @@ public class AnimWeightControl
             getCurWeight = Mathf.Lerp(getCurWeight, aimer, 0.1f);
             _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
         }
+        else
+        {
+           float getCurWeight = Mathf.Lerp(_animator.GetLayerWeight(AimingLayerIndex), 0, 0.1f);
+            _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
+        }
 
     }
 

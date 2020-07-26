@@ -5135,6 +5135,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4865252228465696789, guid: c59636e53d5de2941b79fd9064d99457,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4865252228523033354, guid: c59636e53d5de2941b79fd9064d99457,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y

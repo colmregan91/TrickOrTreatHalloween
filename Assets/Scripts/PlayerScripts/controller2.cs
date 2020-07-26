@@ -18,6 +18,9 @@ public class controller2 : MonoBehaviour, IplayerInput
 
     public bool AimingWeapon => Input.GetKey(KeyCode.Joystick2Button6);
 
+    public bool selectSlot1 => UnityEngine.Input.GetKeyDown(KeyCode.Joystick2Button9);
+    public bool selectSlot2 => UnityEngine.Input.GetKeyDown(KeyCode.Joystick2Button10);
+
     public bool shoot => Input.GetKeyUp(KeyCode.Joystick2Button7);
 
     public bool pause => Input.GetKeyDown(KeyCode.Joystick2Button9) || Input.GetKeyDown(KeyCode.Escape);

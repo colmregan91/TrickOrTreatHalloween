@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 [System.Serializable]
-
-public class FireworkObject : ScriptableObject, Ishootable
+[CreateAssetMenu]
+public class FireworkObject : ScriptableObject /*Ishootable*/
 {
     public PooledMonoBehavior myProjectile;
     public float CoolDownTime;

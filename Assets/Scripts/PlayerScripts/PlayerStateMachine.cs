@@ -44,7 +44,7 @@ public class PlayerStateMachine : MonoBehaviour
         idleState = new Idle(_player, animCont);
         runState = new Running(_player, animCont);
         _dodgeFromIdleState = new DodgeFromIdleState(_player, animCont, DodgeStateMachineBehaviour);
-        _playerinactiveState = new playerInactive(_player);
+        _playerinactiveState = new playerInactive(animCont._PlayerAnimator);
         _dodgeFromMoving = new dodgeFromMoving(_player, animCont, DodgeStateMachineBehaviour);
         initializeTransitions();
         _PlayerStateMachine.SetState(idleState);
@@ -98,11 +98,11 @@ public class PlayerStateMachine : MonoBehaviour
 }
 public class playerInactive : Istate
 {
-    private IPlayer _player;
+    private Animator _playerAnim;
 
-    public playerInactive(IPlayer player)
+    public playerInactive(Animator playerAnim)
     {
-        _player = player;
+        _playerAnim = playerAnim;
     }
     public void OnEnter()
     {

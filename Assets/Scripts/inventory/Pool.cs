@@ -80,9 +80,11 @@ public class Pool : MonoBehaviour
 
     private void ReturnToPool(PooledMonoBehavior PooledObj)
     {
-        transform.localPosition = Vector3.zero;
+        PooledObj.transform.localPosition = Vector3.zero;
+
         poolQueue.Enqueue(PooledObj);
     }
+
 }
 
 //using System;

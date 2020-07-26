@@ -22,11 +22,11 @@ public class PlayerGetUp : Istate
 
         if (front)
         {
-            _AnimCont.PlayAnim("GetUpFront");
+            _AnimCont.PlayAnim("faceUp_Getting Up");
         }
         else
         {
-            _AnimCont.PlayAnim("GetUpBack");
+            _AnimCont.PlayAnim("faceDwn_GetUp");
         }
 
     }

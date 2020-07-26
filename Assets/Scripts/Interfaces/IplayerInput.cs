@@ -7,9 +7,11 @@ public interface IplayerInput
     float Horizontal { get; }
 
     Vector3 MoveVector { get; }
-    float MouseX { get;  }
-    
-    float MouseY { get;  }
+    float MouseX { get; }
+
+    bool selectSlot1 { get; }
+    bool selectSlot2 { get; }
+    float MouseY { get; }
     bool Dodge { get; }
     bool shoot { get; }
     bool pause { get; }

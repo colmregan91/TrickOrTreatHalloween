@@ -8,44 +8,62 @@ public class IKcontrol : MonoBehaviour
     [SerializeField] private Transform aimTarget;
     private Transform shoulder;
     private Transform head;
+    private Transform chest;
     private Vector3 offset;
-    public Vector3 Posoffset;
-    Player player;
+    inventory inventory;
+    PlayerStateMachine stateMachine;
+
+    bool hasControl;
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
         anim = GetComponentInChildren<Animator>();
         shoulder = anim.GetBoneTransform(HumanBodyBones.RightShoulder);
+        chest = anim.GetBoneTransform(HumanBodyBones.UpperChest);
+        Debug.Log(shoulder);
         head = anim.GetBoneTransform(HumanBodyBones.Head);
+        inventory = GetComponent<inventory>();
+        GetComponent <PlayerStateMachine>().HandleStateChange += HandleStateChanged; // CANT USE IN SM AS NEEDS TO BE DONE IN LATEUPDATE , MOCK
+        Debug.Log(inventory);
     }
 
+    void HandleStateChanged(Istate state)
+    {
+        if (state is DodgeFromIdleState || state is dodgeFromMoving)
+        {
+            hasControl = false;
+        }
+        else
+        {
+            hasControl = true;
+        }
+    }
     private void LateUpdate()
     {
         head.LookAt(aimTarget.position);
+     
 
-        if (player.inventory.ActiveItem == null) return;
+        if (inventory.ActiveItem == null || !hasControl) return;
 
-        if (player.inventory.ActiveItem.ObjectType is FireworkObject)
+        if (inventory.ActiveItem.ObjectType is FireworkObject)
         {
-            shoulder.LookAt(aimTarget.position + Posoffset);
+            shoulder.LookAt(aimTarget.position);
 
-            shoulder.rotation = shoulder.rotation * Quaternion.Euler(offset);
         }
 
     }
 
     // Update is called once per frame
-    private void OnAnimatorIK(int layerIndex)
-    {
-        Debug.Log("f");
+    //private void OnAnimatorIK(int layerIndex)
+    //{
+    //    Debug.Log("f");
 
-        anim.SetLookAtWeight(1);
-        anim.SetLookAtPosition(aimTarget.position);
+    //    anim.SetLookAtWeight(1);
+    //    anim.SetLookAtPosition(aimTarget.position);
 
-        anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-        //  anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-        anim.SetIKPosition(AvatarIKGoal.RightHand, aimTarget.position);
-        //      anim.SetIKRotation(AvatarIKGoal.RightHand, aimTarget.rotation);
-    }
+    //    anim.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+    //    //  anim.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
+    //    anim.SetIKPosition(AvatarIKGoal.RightHand, aimTarget.position);
+    //    //      anim.SetIKRotation(AvatarIKGoal.RightHand, aimTarget.rotation);
+    //}
 }

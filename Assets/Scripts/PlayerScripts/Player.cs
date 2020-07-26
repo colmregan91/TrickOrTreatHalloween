@@ -70,12 +70,14 @@ public class Player : MonoBehaviour, IPlayer
     }
     public void TakeControlAway()
     {
+        Debug.Log("taken");
         MyCollider.enabled = false;
         rb.isKinematic = true;
         // goToRagdoll = true;
     }
     public void GiveControlBack()
     {
+        Debug.Log("takenBack");
         //   goToRagdoll = false;
         MyCollider.enabled = true;
         rb.isKinematic = false;
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour, IPlayer
     public void RegisterEVents()
     {
         eventHandler.playertoRgdEvent += TakeControlAway;
-        eventHandler.playertoRgdEvent += GiveControlBack;
+        eventHandler.RgdtoPlayerEvent += GiveControlBack;
     }
 }
 

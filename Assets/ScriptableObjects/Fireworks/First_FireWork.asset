@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   CoolDownTime: 0
   BulletsPerRound: 1
-  ProjectileForce: 200
+  ProjectileForce: 100
   FireRate: 0.1
   ShotsFired: 0
   RoundFinished: 0
