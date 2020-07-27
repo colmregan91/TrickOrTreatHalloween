@@ -19,8 +19,9 @@ public class AnimStepper
 
         _playereventHandler.HandleTurning += Turn;
     }
-    AnimStepper()
+    ~AnimStepper()
     {
+
         _playereventHandler.HandleTurning -= Turn;
     }
 

@@ -11,6 +11,7 @@ public class OnRollFin : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         isFinished = true;
+        TimeToGivePlayerBackInput = true;
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

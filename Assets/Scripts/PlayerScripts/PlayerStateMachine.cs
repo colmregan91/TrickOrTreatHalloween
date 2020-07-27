@@ -9,7 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
     private IPlayer _player;
     private IplayerInput playerInput;
     private Rigidbody rb;
-    public string currentState;
+    public string currentStatestring;
 
     public event Action<Istate> HandleStateChange;
     private Idle idleState;
@@ -65,7 +65,8 @@ public class PlayerStateMachine : MonoBehaviour
         _PlayerStateMachine.AddTransition(idleState, runState, () => _player.playerMover.isMoving);
         _PlayerStateMachine.AddTransition(runState, idleState, () => !_player.playerMover.isMoving);
 
-        _PlayerStateMachine.AddTransition(idleState, turningState, () => _player.PlayerStep.isTurning);
+        Debug.Log(_player.PlayerStep);
+        _PlayerStateMachine.AddTransition(idleState, turningState, () => _player.PlayerStep.CheckTurning());
         _PlayerStateMachine.AddTransition(turningState, idleState, () => turningState.TurnComplete && !animCont._PlayerAnimator.GetBool("isTurning"));
 
         _PlayerStateMachine.AddTransition(turningState, runState, () => _player.playerMover.isMoving);
@@ -92,7 +93,7 @@ public class PlayerStateMachine : MonoBehaviour
         // Time.timeScale = 0.2f;
         _PlayerStateMachine.Tick();
 
-        currentState = _PlayerStateMachine._currentState.ToString();
+        currentStatestring = _PlayerStateMachine._currentState.ToString();
     }
 
 }

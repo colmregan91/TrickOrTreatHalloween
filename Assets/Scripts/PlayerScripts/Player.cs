@@ -70,7 +70,7 @@ public class Player : MonoBehaviour, IPlayer
     }
     public void TakeControlAway()
     {
-        Debug.Log("taken");
+
         MyCollider.enabled = false;
         rb.isKinematic = true;
         // goToRagdoll = true;

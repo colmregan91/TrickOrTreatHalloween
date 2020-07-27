@@ -17,15 +17,17 @@ public class Turning : Istate
 
     public void OnEnter()
     {
+        playerstep.isTurning = true;
         TurnComplete = false;
         targetQuaternion = _player._playerRotation.getRotationTarget();
         TurnStartTime = Time.time;
+        Debug.Log("entered Turning");
     }
 
     public void OnExit() //  CONDITION WHEN PLAYER IS PERFECTLY ALIGNED, TURNING IS BUGGING OUT
     {
-    //    playerstep.isTurning = false;
-        TurnComplete = false;
+    //    
+        TurnComplete = true;
         playerstep.isTurning = false;
     }
 

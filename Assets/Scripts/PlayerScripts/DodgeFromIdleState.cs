@@ -5,6 +5,7 @@ public class DodgeFromIdleState : Istate
     protected IPlayer _player;
     protected OnRollFin _OnRollFin;
     protected animationControl _animCont;
+  //  protected IKcontrol ikCont;
     private Quaternion TargetQuaternion;
     private OnRollFin onrollFin;
 
@@ -13,6 +14,8 @@ public class DodgeFromIdleState : Istate
         _player = player;
         _OnRollFin = onRollFin;
         _animCont = animCont;
+
+        //ikCont = animCont.GetComponentInParent<IKcontrol>();
     }
 
     public virtual void OnEnter()
@@ -26,13 +29,15 @@ public class DodgeFromIdleState : Istate
         Vector3 rollDir = new Vector3(pos.x, 0, pos.z);
 
         _player.DodgeCont.DodgFromIdle(rollDir);
-
+        //ikCont.GiveCOntrolToIK(false);
+        _OnRollFin.isFinished = false;
     }
 
     public void OnExit()
     {
-        _OnRollFin.isFinished = false;
-        _OnRollFin.TimeToGivePlayerBackInput = false;
+
+        _OnRollFin.isFinished = true;
+        _OnRollFin.TimeToGivePlayerBackInput = true;
     //    _animCont._animWeightCont.ControlLegWeight(1, 1);
     }
 

@@ -45,19 +45,20 @@ public class CorrectingCameraPositionAndLerpingTransforms : Istate
 
     public void OnEnter()
     {
-     
-        isFacingUp = _Rgd2.up.y > 0;
+        Debug.Log(_Rgd1);
+        Debug.Log(_Rgd1.forward.y);
+        isFacingUp = _Rgd1.forward.y > 0;
         SLerpStartTime = Time.time;
         if (isFacingUp)
         {
             Debug.Log("facingupfrom head to spine");
-            SetForwardVector(_Rgd2.position, _Rgd1.position);
+            SetForwardVector(_Rgd1.position, _Rgd2.position);
 
         }
         else
         {
-
-            SetForwardVector(_Rgd1.position, _Rgd2.position);
+            SetForwardVector(_Rgd2.position, _Rgd1.position);
+    
         }
 
         _ajTransform.parent.rotation = Forward;

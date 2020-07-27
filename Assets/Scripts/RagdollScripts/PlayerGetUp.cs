@@ -2,7 +2,7 @@
 public class PlayerGetUp : Istate
 {
     private animationControl _AnimCont;
-    public bool playerisUp = false;
+    public bool SetRagdollInactive = false;
     private getUpBack getupback;
     private getUpFront getupfront;
     bool front;
@@ -15,9 +15,11 @@ public class PlayerGetUp : Istate
 
     public void OnEnter()
     {
-        playerisUp = false;
-        _AnimCont._PlayerAnimator.enabled = true;
+        // playerisUp = false;
 
+        _AnimCont.setAnimator(true);
+  
+        _AnimCont._PlayerAnimator.SetFloat("Speed", 0);
         front = _AnimCont._RagdollTemplateAnimator.GetBool("Front");
 
         if (front)
@@ -33,21 +35,12 @@ public class PlayerGetUp : Istate
 
     public void OnExit()
     {
-        playerisUp = false;
-        getupback.getUpback = false;
-        getupfront.GetUpFront = false;
+
     }
 
     public void OnUpdate()
     {
-        if (front)
-        {
-            playerisUp = getupfront.GetUpFront;
-
-        }
-        else
-        {
-            playerisUp = getupback.getUpback;
-        }
+        SetRagdollInactive = _AnimCont._PlayerAnimator.GetCurrentAnimatorStateInfo(0).IsName("RunLocomotion");
+    //    Debug.Log(_AnimCont._PlayerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
     }
 }

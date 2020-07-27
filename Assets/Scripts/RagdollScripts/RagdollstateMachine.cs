@@ -36,7 +36,7 @@ public class RagdollstateMachine : MonoBehaviour
 
         _ragdollInactiveState = new RagdollInactive(AnimCont);
 
-        _ragdollState = new OnRagdoll(RGDtransform, AJtransform);
+        _ragdollState = new OnRagdoll(RGDtransform, AJtransform, RGspine);
 
         _CorrecingCamPos = new CorrectingCameraPositionAndLerpingTransforms(player.CamManager.transform, AnimCont, AJtransform, RGDtransform, RGspine, RGhead);
 
@@ -87,7 +87,7 @@ public class RagdollstateMachine : MonoBehaviour
         _RagdollStateMachine.AddTransition(_ragdollInactiveState, _ragdollState, () => goToRagdoll);
         _RagdollStateMachine.AddTransition(_ragdollState, _CorrecingCamPos, () => _ragdollState.continuetoNextState);
         _RagdollStateMachine.AddTransition(_CorrecingCamPos, _playerGetUp, () => _CorrecingCamPos.Ready);
-        _RagdollStateMachine.AddTransition(_playerGetUp, _ragdollInactiveState, () => _playerGetUp.playerisUp);
+        _RagdollStateMachine.AddTransition(_playerGetUp, _ragdollInactiveState, () => _playerGetUp.SetRagdollInactive);
     }
     private void Update()
     {

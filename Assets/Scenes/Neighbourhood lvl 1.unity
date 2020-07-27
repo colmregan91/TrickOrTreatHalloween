@@ -42469,6 +42469,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EggPickUp
       objectReference: {fileID: 0}
+    - target: {fileID: 3768236026413620961, guid: a18355f568625654586d349f1ad11711,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a18355f568625654586d349f1ad11711, type: 3}
 --- !u!4 &7271050976908028812 stripped

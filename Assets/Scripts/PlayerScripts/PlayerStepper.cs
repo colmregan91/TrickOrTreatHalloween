@@ -18,6 +18,7 @@ public class PlayerStepper
         _player = player;
         _aimTarget = aimtarget;
         PlayerEventHandler = _player.eventHandler;
+
     }
 
 
@@ -50,20 +51,25 @@ public class PlayerStepper
         return ang;
     }
 
+    public bool CheckTurning()
+    {
+        Debug.Log(angle > TurnThreshold);
+        return angle > TurnThreshold;
+    }
+
     public void Tick()
     {
 
-        if (isTurning) return;
+
 
         angle = GetAngleBetweenPlayerandTarget();
 
-        if (angle > TurnThreshold)
+        if (CheckTurning())
         {
             int Dot = CalculateAngleDirection();
             PlayerEventHandler.RaiseHandleTurning(Dot);
-            isTurning = true;
-            angle = 0;
-        }
-    }
 
+        }
+
+    }
 }

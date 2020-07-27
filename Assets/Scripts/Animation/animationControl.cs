@@ -22,7 +22,7 @@ public class animationControl : MonoBehaviour
     private int RollTriggerID;
     public Animator _PlayerAnimator => PlayerAnimator;
     public int TurnID { get; private set; }
-    public bool hasControlOverAnim = true;
+
     public AnimStepper animStepper => _animStepper;
     void SetAnImHashIDs() // UPDATE FOR ALL STRING REFS IN THIS SCR
     {
@@ -41,33 +41,42 @@ public class animationControl : MonoBehaviour
         _animWeightCont = new AnimWeightControl(_PlayerAnimator, player);
 
         SetAnImHashIDs();
+
         _PlayerAnimator.keepAnimatorControllerStateOnDisable = true;
 
-   // used in elsewhere also
+        // used in elsewhere also
     }
 
 
 
     public void setAnimator(bool value)
     {
+   //     _PlayerAnimator.ResetTrigger("Roll");
         _PlayerAnimator.enabled = value;
+
+        if (value == true)
+        {
+            Debug.Log("turned on now");
+        }
     }
     public void PlayAnim(string animtoPlay)
     {
         _PlayerAnimator.Play(animtoPlay);
-  
+
     }
     public void SetTemplatePose(bool isfacingupwards)
     {
-        if (isfacingupwards)
+        if (!isfacingupwards)
         {
+            Debug.Log("facedown");
             _RagdollTemplateAnimator.SetBool("Back", true);
             _RagdollTemplateAnimator.SetBool("Front", false);
-            _RagdollTemplateAnimator.Play("faceDwn_GetUp"); 
+            _RagdollTemplateAnimator.Play("faceDwn_GetUp");
 
         }
         else
         {
+            Debug.Log("faceup");
             _RagdollTemplateAnimator.SetBool("Front", true);
             _RagdollTemplateAnimator.SetBool("Back", false);
             _RagdollTemplateAnimator.Play("faceUp_Getting Up");
@@ -76,6 +85,6 @@ public class animationControl : MonoBehaviour
 
     }
 
-    
+
 }
 

@@ -13,6 +13,7 @@ public class RagdollUpdater
 
     public void Tick()
     {
+
         Vector3 raypos = _RGDSpine.position + Vector3.up * 0.01f;
         Ray ray = new Ray(raypos, Vector3.down);
 

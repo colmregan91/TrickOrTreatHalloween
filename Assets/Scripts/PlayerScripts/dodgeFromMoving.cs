@@ -7,6 +7,8 @@ public class dodgeFromMoving : DodgeFromIdleState
         _player = player;
         _OnRollFin = onRollFin;
         _animCont = animCont;
+
+   
     }
 
     public override void OnEnter()
@@ -17,6 +19,8 @@ public class dodgeFromMoving : DodgeFromIdleState
         Vector3 rollDir = new Vector3(pos.x, 0, pos.z);
 
         _player.DodgeCont.DodgFromMoving(rollDir);
+        _OnRollFin.isFinished = false;
+        //  ikCont.GiveCOntrolToIK(false);
     }
 }
 

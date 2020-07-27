@@ -5,11 +5,15 @@ public class Idle : Istate
     private IPlayer _player;
     private animationControl _animCont;
     private PlayerStepper playerStepper;
+
+  //  private IKcontrol ikCont;
     public Idle(IPlayer player, animationControl animCont)
     {
         _player = player;
         _animCont = animCont;
         playerStepper = _player.PlayerStep;
+      //  ikCont = animCont.GetComponentInParent<IKcontrol>();
+
     }
     public void OnEnter()
     {
@@ -24,12 +28,13 @@ public class Idle : Istate
     public void OnUpdate()
     {
      //   _animCont._animWeightCont.ControlLegWeight(1, 0.1f);
+
         playerStepper.Tick();
         _animCont._animBlending.MoveBlendTick();
         _animCont._animBlending.SpeedAnimTick();
         _animCont._animWeightCont.Tick();
         _player.playerMover.Tick(_player.Speed);
-
+        //ikCont.GiveCOntrolToIK (true);
     }
 }
 
