@@ -2,14 +2,23 @@
 
 public class EggShooter : ITemShooter
 {
-    private EggAimer aimer;
 
     public EggObject CurrentlyEquippedEgg { get; private set; }
+    private eggTrajectoryControl trajectory;
+    public override void OnEnable()
+    {   player = transform.root.GetComponent<Player>();
+        playerStateMachine = player.playerstateMachine;
+        playerStateMachine.HandleStateChange += HandleCanShootStateChange;
 
-    private void Start()
-    {
-        aimer = GetComponent<EggAimer>();
+        trajectory = transform.root.GetComponentInChildren<eggTrajectoryControl>();
+        trajectory.gameObject.SetActive(true);
+        ShootingPos = trajectory.transform;
     }
+    public override void OnDisable()
+    {
+        playerStateMachine.HandleStateChange -= HandleCanShootStateChange;
+    }
+
     public override void Use<t>(t CurrentHeldItem)
     {
         EggObject CurrentEgg = CurrentHeldItem as EggObject;
@@ -19,10 +28,8 @@ public class EggShooter : ITemShooter
 
     void shoot()
     {
-        Vector3 dir =  aimer.GetThrowDir();
-        Vector3 shotpos = aimer.GetStartofTrajectory();
 
-        CurrentlyEquippedEgg.Throw(dir, shotpos);
+        CurrentlyEquippedEgg.Throw(trajectory.dots, ShootingPos.position, trajectory.ShotForce.magnitude);
     }
 }
 

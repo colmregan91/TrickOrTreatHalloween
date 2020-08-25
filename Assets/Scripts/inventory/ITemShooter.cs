@@ -5,8 +5,7 @@ using UnityEngine;
 public class ITemShooter : ItemComponent
 {
 
-    private int lyrMsk;
-    private Player player;
+    protected Player player;
     private Camera _cam;
 
     // [SerializeField] private GameObject bullet;
@@ -14,15 +13,12 @@ public class ITemShooter : ItemComponent
     public bool isShooting;
     public Transform ShootingPos;
     private crossHair Crosshair;
-    private PlayerStateMachine playerStateMachine;
+    protected PlayerStateMachine playerStateMachine;
 
     public bool isRoundFinished { get { return CurrentlyEquippedFirework != null && CurrentlyEquippedFirework.RoundFinished; } }
-    private void Awake()
-    {
-        lyrMsk = LayerMask.GetMask("Default");
-    }
 
-    private void OnDisable()
+
+    public virtual void OnDisable()
     {
         if (CurrentlyEquippedFirework != null)
         {
@@ -33,7 +29,7 @@ public class ITemShooter : ItemComponent
         playerStateMachine.HandleStateChange -= HandleCanShootStateChange;
     }
 
-    private void OnEnable()
+    public virtual void OnEnable()
     {
         player = transform.root.GetComponent<Player>();
         _cam = player._PlayerCamera;
@@ -43,7 +39,7 @@ public class ITemShooter : ItemComponent
         playerStateMachine.HandleStateChange += HandleCanShootStateChange;
     }
 
-    void HandleCanShootStateChange(Istate state)
+   public void HandleCanShootStateChange(Istate state)
     {
         if (state is DodgeFromIdleState || state is dodgeFromMoving)
         {

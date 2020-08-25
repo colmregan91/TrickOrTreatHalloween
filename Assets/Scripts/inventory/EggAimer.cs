@@ -15,19 +15,18 @@ public class EggAimer : ItemAimer
     public override void Start()
     {
         base.Start();
-        player = transform.root.GetComponent<IPlayer>();
-        Trajectoryholder.SetParent(player.playerTransform);
-        Trajectoryholder.localPosition = new Vector3(0.5f, Trajectoryholder.localPosition.y, Trajectoryholder.localPosition.z);
-        camControl = player.CamManager.CamCont;
-        trajectoryCont = Trajectoryholder.GetComponent<eggTrajectoryControl>();
+        
     }
 
- 
+
     public Vector3 GetStartofTrajectory()
     {
-        return trajectoryCont.dots[0].position;
+        return Trajectoryholder.position;
     }
-
+    public Quaternion GetStartofRotation()
+    {
+        return Trajectoryholder.rotation;
+    }
 
 
     // Update is called once per frame
@@ -37,14 +36,6 @@ public class EggAimer : ItemAimer
         //VertRotationY += InputValues.YRotation * InputValues.RotationSensitivity * Time.deltaTime;
         //VertRotationY = Mathf.Clamp(VertRotationY, -50, 50);
         //weaponControl.ShotForce = new Vector3(0, weaponControl.egg_Y_ShootingPower, weaponControl.egg_X_ShootingPower);
-
-
-        ShotForce = new Vector3(0, -camControl._tiltY / 2, 10);
-
-        Vector3 rot = camControl.GetCamOrientation();
-
-        Trajectoryholder.transform.rotation = Quaternion.Euler(rot);
-
         //weaponControl.egg_Y_ShootingPower = Mathf.Lerp(weaponControl.egg_Y_ShootingPower, VertRotationY, Time.deltaTime * YAimSmoother);
 
         //  ControlTrajectory();
@@ -64,13 +55,9 @@ public class EggAimer : ItemAimer
         base.OnDisable();
     }
 
-    public Vector3 GetThrowDir()
+    public Vector3 GetThrowForce()
     {
-     
-            return trajectoryCont.dots[1].localPosition;
-        
-
-   
+        return Vector3.zero;
     }
 
 

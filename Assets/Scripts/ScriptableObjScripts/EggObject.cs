@@ -10,15 +10,12 @@ public class EggObject : ScriptableObject
     public PooledMonoBehavior EggProjectile;
     public float shotMultiplier;
 
-    public void Throw(Vector3 dir, Vector3 ShotPos)
+    public void Throw(Transform[] dir, Vector3 ShotPos, float force)
     {
-        var projectile = EggProjectile.Get<EggProjectile>(ShotPos,Quaternion.identity);
+        var projectile = EggProjectile.Get<EggProjectile>(ShotPos, Quaternion.identity) as EggProjectile;
         projectile.transform.SetParent(null);
-        projectile.rb.useGravity = true;
-        projectile.transform.LookAt(dir);
+        projectile.BeginLaunch(dir, force);
 
-        Time.timeScale = 0;
-        projectile.rb.velocity = new Vector3(0, 0, 3);
     }
 
     public void SetMyPool()
@@ -34,3 +31,8 @@ public class EggObject : ScriptableObject
 //    projectile.transform.position = StartPos;
 //    projectile.rb.AddForce(dir, ForceMode.VelocityChange);
 //}
+
+public class LaunchedEgg : MonoBehaviour
+{
+
+}
