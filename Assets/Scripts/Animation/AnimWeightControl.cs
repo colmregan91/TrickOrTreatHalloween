@@ -23,24 +23,24 @@ public class AnimWeightControl
     public void Tick()
     {
 
-        if (_player.inventory.ActiveItem == null || _player.inventory.isLootDropped)
-        {
-            _animator.SetLayerWeight(AimingLayerIndex, 0);
-            return;
-        }
+        //if (_player.inventory.ActiveItem == null || _player.inventory.isLootDropped)
+        //{
+        //    _animator.SetLayerWeight(AimingLayerIndex, 0);
+        //    return;
+        //}
         
-        if (_player.inventory.ActiveItem.ObjectType is FireworkObject)
-        {
-            float aimer = _player.input.AimingWeapon == false ? 0.6f : 0.8f;
-            float getCurWeight = _animator.GetLayerWeight(AimingLayerIndex);
-            getCurWeight = Mathf.Lerp(getCurWeight, aimer, 0.1f);
-            _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
-        }
-        else
-        {
-           float getCurWeight = Mathf.Lerp(_animator.GetLayerWeight(AimingLayerIndex), 0, 0.1f);
-            _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
-        }
+        //if (_player.inventory.ActiveItem.ObjectType is FireworkObject)
+        //{
+        //    float aimer = _player.input.AimingWeapon == false ? 0.6f : 0.8f;
+        //    float getCurWeight = _animator.GetLayerWeight(AimingLayerIndex);
+        //    getCurWeight = Mathf.Lerp(getCurWeight, aimer, 0.1f);
+        //    _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
+        //}
+        //else
+        //{
+        //   float getCurWeight = Mathf.Lerp(_animator.GetLayerWeight(AimingLayerIndex), 0, 0.1f);
+        //    _animator.SetLayerWeight(AimingLayerIndex, getCurWeight);
+        //}
 
     }
 

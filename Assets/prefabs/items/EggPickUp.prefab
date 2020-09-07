@@ -181,6 +181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShooting: 0
   ShootingPos: {fileID: 0}
+  egg_X_ShootingPower: 0
+  eggCharge: 0
+  EggCharge_MinClamp: -50
+  egg_Y_ShootingPower: 0
+  ShotForce: {x: 0, y: 0, z: 0}
+  EggCharge_MaxClamp: 50
+  eggManager: {fileID: 0}
 --- !u!114 &3577038904692410900
 MonoBehaviour:
   m_ObjectHideFlags: 0

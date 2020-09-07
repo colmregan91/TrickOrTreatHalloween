@@ -24,6 +24,8 @@ public class AnimationBlending
     public int aimBlendX_ToHash { get; private set; }
     public int aimBlendY_ToHash { get; private set; }
     public int SpeedAnim_ToHash { get; private set; }
+    public int DodgeBlendX_ToHash { get; private set; }
+    public int DodgeBlendZ_ToHash { get; private set; }
 
     private float animLerpSpeed = 0.5f;
     private float BlendSpeedLerp;
@@ -47,6 +49,8 @@ public class AnimationBlending
         //aimBlendY_ToHash = Animator.StringToHash("AimBlendY");
         SpeedAnim_ToHash = Animator.StringToHash("Speed");
         RollTrigger_ToHash = Animator.StringToHash("Roll");
+        DodgeBlendX_ToHash = Animator.StringToHash("DodgeBlendX");
+        DodgeBlendZ_ToHash = Animator.StringToHash("DodgeBlendZ");
     }
 
 
@@ -86,11 +90,11 @@ public class AnimationBlending
         _anim.SetFloat(SpeedAnim_ToHash, cur); 
     }
 
-    public void SetDodgeBlendParamsFromMoving()
+    public void SetDodgeBlendParamsFromMoving(Vector3 rollDIr)
     {
 
-        _anim.SetFloat(AnimBlendX_ToHash, _player.input.MoveVector.x);
-        _anim.SetFloat(AnimBlendZ_ToHash, _player.input.MoveVector.z);
+        _anim.SetFloat(DodgeBlendX_ToHash, rollDIr.normalized.x);
+        _anim.SetFloat(DodgeBlendZ_ToHash, rollDIr.normalized.z);
         _anim.SetTrigger(RollTrigger_ToHash);
     }
     public void SetDodgeBlendParamsFromIdle()

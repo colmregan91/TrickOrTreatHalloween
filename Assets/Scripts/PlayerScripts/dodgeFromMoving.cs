@@ -14,10 +14,10 @@ public class dodgeFromMoving : DodgeFromIdleState
     public override void OnEnter()
     {
         _animCont._animBlending.resetSpeedAnimParam();
-        _animCont._animBlending.SetDodgeBlendParamsFromMoving();
+      
         Vector3 pos = _player.input.MoveVector;
         Vector3 rollDir = new Vector3(pos.x, 0, pos.z);
-
+        _animCont._animBlending.SetDodgeBlendParamsFromMoving(rollDir);
         _player.DodgeCont.DodgFromMoving(rollDir);
         _OnRollFin.isFinished = false;
         //  ikCont.GiveCOntrolToIK(false);

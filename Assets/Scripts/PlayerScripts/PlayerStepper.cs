@@ -53,7 +53,7 @@ public class PlayerStepper
 
     public bool CheckTurning()
     {
-        Debug.Log(angle > TurnThreshold);
+
         return angle > TurnThreshold;
     }
 

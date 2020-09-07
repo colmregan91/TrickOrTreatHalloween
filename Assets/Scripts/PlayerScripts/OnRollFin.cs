@@ -8,6 +8,12 @@ public class OnRollFin : StateMachineBehaviour
 
     public bool TimeToGivePlayerBackInput { get; internal set; }
 
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        isFinished = false;
+        TimeToGivePlayerBackInput = false;
+    }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         isFinished = true;
@@ -15,7 +21,7 @@ public class OnRollFin : StateMachineBehaviour
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (stateInfo.normalizedTime > 0.8f)
+        if (stateInfo.normalizedTime > 0.6f)
         {
 
             TimeToGivePlayerBackInput = true;

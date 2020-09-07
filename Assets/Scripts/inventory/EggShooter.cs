@@ -5,14 +5,25 @@ public class EggShooter : ITemShooter
 
     public EggObject CurrentlyEquippedEgg { get; private set; }
     private eggTrajectoryControl trajectory;
+
+    public float egg_X_ShootingPower;
+    public float eggCharge;
+    public float EggCharge_MinClamp = -50;
+    public float egg_Y_ShootingPower;
+    public Vector3 ShotForce;
+    public float EggCharge_MaxClamp = 50;
+    public eggMan eggManager;
+
     public override void OnEnable()
-    {   player = transform.root.GetComponent<Player>();
+    {
+       
+     
+        player = transform.root.GetComponent<Player>();
         playerStateMachine = player.playerstateMachine;
         playerStateMachine.HandleStateChange += HandleCanShootStateChange;
 
-        trajectory = transform.root.GetComponentInChildren<eggTrajectoryControl>();
-        trajectory.gameObject.SetActive(true);
-        ShootingPos = trajectory.transform;
+        eggManager = player.transform.Find("EggTrajectoryStart").GetComponent<eggMan>();
+        eggManager.SetTrajectoryRender(true);
     }
     public override void OnDisable()
     {
@@ -29,7 +40,7 @@ public class EggShooter : ITemShooter
     void shoot()
     {
 
-        CurrentlyEquippedEgg.Throw(trajectory.dots, ShootingPos.position, trajectory.ShotForce.magnitude);
+        CurrentlyEquippedEgg.Throw(eggManager.GetThrowDir(), eggManager.ThrowStartPos());
     }
 }
 
