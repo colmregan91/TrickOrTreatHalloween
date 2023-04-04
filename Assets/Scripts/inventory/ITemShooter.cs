@@ -12,7 +12,7 @@ public class ITemShooter : ItemComponent
     private FireworkObject CurrentlyEquippedFirework;
     public bool isShooting;
     public Transform ShootingPos;
-    private crossHair Crosshair;
+    public crossHair Crosshair;
     protected PlayerStateMachine playerStateMachine;
 
     public bool isRoundFinished { get { return CurrentlyEquippedFirework != null && CurrentlyEquippedFirework.RoundFinished; } }
@@ -50,7 +50,7 @@ public class ITemShooter : ItemComponent
     }
     public Vector3 GetDir()
     {
-        Vector3 TargetPos = Crosshair.RandomPointTick();
+  //      Vector3 TargetPos = Crosshair.RandomPointTick();
         //  Vector3 poi = _cam.WorldToScreenPoint(TargetPos.normalized);
         Ray TargetPoint = _cam.ViewportPointToRay(Vector3.one / 2);
         return TargetPoint.direction.normalized;
